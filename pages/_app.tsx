@@ -1,8 +1,22 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../src/style/index.css";
+import type { CustomAppProps } from "next/app";
+import Head from "next/head";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }: CustomAppProps) => {
+  const getLayout =
+    Component.getLayout ||
+    ((page) => {
+      return page;
+    });
 
-export default MyApp
+  return (
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      {getLayout(<Component {...pageProps} />)}
+    </>
+  );
+};
+
+export default MyApp;
