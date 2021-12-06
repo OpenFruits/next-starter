@@ -13,9 +13,7 @@ export const NavLinks = (props: Props) => {
   const pathname = router.pathname === "/root" ? "/" : router.pathname;
 
   const className =
-    pathname === linkProps.href
-      ? `${activeClass} ${children.props.className ?? ""}`
-      : children.props.className ?? "";
+    pathname === linkProps.href ? `${activeClass} ${children.props.className ?? ""}` : children.props.className ?? "";
 
   return <Link {...linkProps}>{cloneElement(children, { className })}</Link>;
 };

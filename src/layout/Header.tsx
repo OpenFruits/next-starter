@@ -1,4 +1,4 @@
-import { VFC } from "react";
+import type { VFC } from "react";
 import { NavLinks } from "src/component/NavLinks";
 
 const NAV_ITEMS = [

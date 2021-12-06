@@ -1,6 +1,6 @@
 import type { CustomLayout } from "next";
-import { Header } from "src/layout/Header";
 import { Footer } from "src/layout/Footer";
+import { Header } from "src/layout/Header";
 import { LayoutErrorBoundary } from "src/layout/LayoutErrorBoundary";
 
 export const FluidLayout: CustomLayout = (page) => {
