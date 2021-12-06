@@ -16,6 +16,9 @@
       "autoprefixer": {}
     }
   },
+  "prettier": {
+    "printWidth": 120
+  },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/line-clamp": "^0.2.2",
