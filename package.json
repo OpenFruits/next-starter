@@ -9,6 +9,7 @@
     "prettier": "prettier --check .",
     "fix:lint": "next lint --fix",
     "fix:prettier": "prettier --write .",
+    "env": "vercel env pull .env.local",
     "prepare": "husky install"
   },
   "postcss": {
