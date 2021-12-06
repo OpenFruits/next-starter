@@ -8,7 +8,8 @@
     "lint": "next lint",
     "prettier": "prettier --check .",
     "fix:lint": "next lint --fix",
-    "fix:prettier": "prettier --write ."
+    "fix:prettier": "prettier --write .",
+    "prepare": "husky install"
   },
   "postcss": {
     "plugins": {
@@ -39,9 +40,20 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-tailwindcss": "^1.17.2",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.1.2",
     "postcss": "^8.4.4",
     "prettier": "^2.5.1",
     "tailwindcss": "^2.2.19",
     "typescript": "4.5.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix .",
+      "prettier --write ."
+    ],
+    "**/*.{json,md,mdx,css,html,yml,yaml,scss}": [
+      "prettier --write ."
+    ]
   }
 }
