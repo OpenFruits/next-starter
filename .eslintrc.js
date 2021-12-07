@@ -66,7 +66,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["pages/**/*.tsx"],
+      files: ["playwright.config.ts", "pages/**/*.tsx"],
       rules: { "import/no-default-export": "off" },
     },
     {
