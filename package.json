@@ -10,6 +10,7 @@
     "fix:lint": "next lint --fix",
     "fix:prettier": "prettier --write .",
     "test:unit": "jest --watch",
+    "test:e2e": "playwright test",
     "env": "vercel env pull .env.local",
     "prepare": "husky install"
   },
@@ -32,6 +33,7 @@
     "react-error-boundary": "^3.1.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.17.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.3",
