@@ -1,5 +1,6 @@
 import type { CustomNextPage } from "next";
 import Head from "next/head";
+import { Button } from "src/component/Button/Button";
 import { FluidLayout } from "src/layout/FluidLayout";
 
 const Home: CustomNextPage = () => {
@@ -11,14 +12,13 @@ const Home: CustomNextPage = () => {
     <div>
       <Head>
         <title>Index Page</title>
-        <meta name="description" content="Starter Template by Next.js" />
       </Head>
 
-      <div>
+      <div className="space-y-4">
         <h2>Index</h2>
-        <button className="p-2" onClick={handleClick}>
+        <Button variant="solid-blue" className="p-2 rounded" onClick={handleClick}>
           show alert!
-        </button>
+        </Button>
       </div>
     </div>
   );
