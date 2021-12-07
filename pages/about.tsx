@@ -7,7 +7,6 @@ const About: CustomNextPage = () => {
     <div>
       <Head>
         <title>About Page</title>
-        <meta name="description" content="Starter Template by Next.js" />
       </Head>
 
       <div>

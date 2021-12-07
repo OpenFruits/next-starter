@@ -13,6 +13,7 @@ const MyApp = (props: CustomAppProps) => {
   return (
     <>
       <Head>
+        <meta name="description" content="Starter Template by Next.js and TailwindCSS." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {getLayout(<props.Component {...props.pageProps} />)}
