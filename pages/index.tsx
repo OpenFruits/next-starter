@@ -1,6 +1,6 @@
 import type { CustomNextPage } from "next";
 import Head from "next/head";
-import { Button } from "src/component/Button/Button";
+import { Button } from "src/component/Button";
 import { FluidLayout } from "src/layout/FluidLayout";
 
 const Home: CustomNextPage = () => {
@@ -9,7 +9,7 @@ const Home: CustomNextPage = () => {
   };
 
   return (
-    <div>
+    <>
       <Head>
         <title>Index Page</title>
       </Head>
@@ -20,7 +20,7 @@ const Home: CustomNextPage = () => {
           show alert!
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import { FixedLayout } from "src/layout/FixedLayout";
 
 const About: CustomNextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>About Page</title>
       </Head>
@@ -12,7 +12,7 @@ const About: CustomNextPage = () => {
       <div>
         <h2>About</h2>
       </div>
-    </div>
+    </>
   );
 };
 
