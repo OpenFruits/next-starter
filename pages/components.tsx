@@ -7,7 +7,7 @@ import { Button2 as Btn2 } from "src/component/Button2";
 import { FixedLayout } from "src/layout/FixedLayout";
 
 const BtnClass = "p-2 rounded";
-const Btn2Class = `${BtnClass} bg-yellow-400 hover:bg-yellow-500`;
+const Btn2Class = `${BtnClass} bg-amber-300 hover:bg-amber-500`;
 
 const Btn: VFC<{ variant: ButtonVariant }> = (props) => {
   return (
