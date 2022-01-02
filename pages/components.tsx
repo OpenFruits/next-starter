@@ -41,7 +41,7 @@ const Components: CustomNextPage = () => {
           <Btn2 tag="button" className={Btn2Class}>
             button
           </Btn2>
-          <Btn2 tag="a" linkProps={{ href: "#" }} className={Btn2Class}>
+          <Btn2 tag="a" linkProps={{ href: "/" }} className={Btn2Class}>
             anchor
           </Btn2>
           <form>
