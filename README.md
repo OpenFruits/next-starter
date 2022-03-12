@@ -9,6 +9,7 @@
 - Jest
 - Playwright
 - react-error-boundary
+- React Hook Form
 - clsx
 - lint-staged
 - Husky
