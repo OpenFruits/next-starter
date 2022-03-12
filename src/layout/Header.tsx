@@ -5,6 +5,7 @@ const NAV_ITEMS = [
   { href: "/", label: "Root" },
   { href: "/about", label: "About" },
   { href: "/components", label: "Components" },
+  { href: "/form", label: "Form" },
 ];
 
 export const Header: VFC = () => {
