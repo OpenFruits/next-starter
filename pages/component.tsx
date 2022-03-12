@@ -1,9 +1,12 @@
 import type { CustomNextPage } from "next";
 import Head from "next/head";
 import type { VFC } from "react";
+import type { SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button } from "src/component/Button";
 import type { ButtonVariant } from "src/component/Button/type";
 import { Button2 as Btn2 } from "src/component/Button2";
+import { Input } from "src/component/Input";
 import { FixedLayout } from "src/layout/FixedLayout";
 
 const BtnClass = "p-2 rounded";
@@ -18,6 +21,9 @@ const Btn: VFC<{ variant: ButtonVariant }> = (props) => {
 };
 
 const Component: CustomNextPage = () => {
+  const { register, handleSubmit } = useForm<{ example: string }>({});
+  const onSubmit: SubmitHandler<{ example: string }> = (data) => alert(data.example);
+
   return (
     <>
       <Head>
@@ -26,6 +32,7 @@ const Component: CustomNextPage = () => {
 
       <div>
         <h2>Component Collection</h2>
+
         <h3>Button</h3>
         <div className="flex space-x-2">
           <Btn variant="solid-blue" />
@@ -36,18 +43,23 @@ const Component: CustomNextPage = () => {
           <Btn variant="outline" />
           <Btn variant="ghost" />
         </div>
+
         <h3>Button2</h3>
-        <div className="flex space-x-2">
+        <form className="flex space-x-2">
           <Btn2 tag="button" className={Btn2Class}>
             button
           </Btn2>
           <Btn2 tag="a" linkProps={{ href: "/" }} className={Btn2Class}>
             anchor
           </Btn2>
-          <form>
-            <Btn2 tag="input" type="submit" value="submit" className={Btn2Class} />
-          </form>
-        </div>
+          <Btn2 tag="input" type="submit" value="submit" className={Btn2Class} />
+        </form>
+
+        <h3>Input</h3>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex space-x-2">
+          <Input defaultValue="example" {...register("example")} />
+          <Btn2 tag="input" type="submit" value="submit" className={Btn2Class} />
+        </form>
       </div>
     </>
   );
