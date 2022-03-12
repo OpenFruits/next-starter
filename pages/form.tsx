@@ -2,12 +2,11 @@ import type { CustomNextPage } from "next";
 import Head from "next/head";
 import type { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
+import { Button } from "src/component/Button";
+import { Input } from "src/component/Input";
 import { FixedLayout } from "src/layout/FixedLayout";
 
-type Inputs = {
-  example: string;
-  exampleRequired: string;
-};
+type Inputs = { accountName: string; userName: string };
 
 const Form: CustomNextPage = () => {
   const {
@@ -15,28 +14,47 @@ const Form: CustomNextPage = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+    defaultValues: {
+      accountName: "たくみ",
+      userName: "openfruits",
+    },
+  });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => alert(data);
-
-  // eslint-disable-next-line no-console
-  console.log(watch("example")); // watch input value by passing the name of it
+  const onSubmit: SubmitHandler<Inputs> = (data) => alert({ ...data });
 
   return (
     <>
       <Head>
         <title>Form Page</title>
       </Head>
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {/* register your input into the hook by invoking the "register" function */}
-          <input defaultValue="test" {...register("example")} />
-          {/* include validation with required or other standard HTML validation rules */}
-          <input {...register("exampleRequired", { required: true })} />
-          {/* errors will return when field validation fails  */}
-          {errors.exampleRequired && <span>This field is required</span>}
-
-          <input type="submit" />
+      <h2>React Hook Form v7</h2>
+      <div className="py-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
+          <Input
+            label="名前"
+            {...register("accountName", {
+              required: { value: true, message: "入力必須です" },
+              maxLength: { value: 64, message: "64文字以下にする必要があります" },
+              minLength: { value: 2, message: "2文字以上にする必要があります" },
+            })}
+            error={errors.accountName?.message}
+          />
+          <Input
+            label="ユーザー名"
+            prefix="@"
+            {...register("userName", {
+              required: { value: true, message: "入力必須です" },
+              maxLength: { value: 16, message: "16文字以下にする必要があります" },
+              minLength: { value: 4, message: "4文字以上にする必要があります" },
+              pattern: { value: /^[A-Za-z0-9_]+$/i, message: "半角英数字と_だけご使用できます" },
+            })}
+            error={errors.userName?.message}
+          />
+          <p>{`watch userName: @${watch("userName")}`}</p>
+          <Button type="submit" variant="solid-blue" className="p-2 w-full rounded-lg">
+            送信
+          </Button>
         </form>
       </div>
     </>
