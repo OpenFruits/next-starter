@@ -17,11 +17,11 @@ const Btn: VFC<{ variant: ButtonVariant }> = (props) => {
   );
 };
 
-const Components: CustomNextPage = () => {
+const Component: CustomNextPage = () => {
   return (
     <>
       <Head>
-        <title>Components Page</title>
+        <title>Component Page</title>
       </Head>
 
       <div>
@@ -53,6 +53,6 @@ const Components: CustomNextPage = () => {
   );
 };
 
-Components.getLayout = FixedLayout;
+Component.getLayout = FixedLayout;
 
-export default Components;
+export default Component;

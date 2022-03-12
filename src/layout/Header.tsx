@@ -4,7 +4,7 @@ import { NavLinks } from "src/component/NavLinks";
 const NAV_ITEMS = [
   { href: "/", label: "Root" },
   { href: "/about", label: "About" },
-  { href: "/components", label: "Components" },
+  { href: "/component", label: "Component" },
   { href: "/form", label: "Form" },
 ];
 
