@@ -12,20 +12,24 @@ type Inputs = {
   age: number;
 };
 
+const defaultValue: Inputs = {
+  accountName: "たくみ",
+  userName: "openfruits",
+  age: 25,
+};
+
 const Form: CustomNextPage = () => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>({
-    defaultValues: {
-      accountName: "たくみ",
-      userName: "openfruits",
-    },
-  });
+  } = useForm<Inputs>({ defaultValues: defaultValue });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => alert({ ...data });
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+  };
 
   return (
     <>
