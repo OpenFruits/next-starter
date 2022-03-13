@@ -30,7 +30,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
               rest.prefix ? "pl-10" : "pl-5",
               className
             )}
-            autoComplete="off"
+            autoComplete={rest.autoComplete || "off"}
             ref={ref}
             {...rest}
           />
