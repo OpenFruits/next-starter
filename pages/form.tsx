@@ -6,7 +6,11 @@ import { Button } from "src/component/Button";
 import { Input } from "src/component/Input";
 import { FixedLayout } from "src/layout/FixedLayout";
 
-type Inputs = { accountName: string; userName: string };
+type Inputs = {
+  accountName: string;
+  userName: string;
+  age: number;
+};
 
 const Form: CustomNextPage = () => {
   const {
@@ -52,6 +56,16 @@ const Form: CustomNextPage = () => {
             error={errors.userName?.message}
           />
           <p>{`watch userName: @${watch("userName")}`}</p>
+          <Input
+            type="number"
+            label="年齢"
+            {...register("age", {
+              required: { value: true, message: "入力必須です" },
+              max: { value: 60, message: "利用可能年齢は60歳未満です" },
+              min: { value: 0, message: "正しい年齢を入力してください" },
+            })}
+            error={errors.age?.message}
+          />
           <Button type="submit" variant="solid-blue" className="p-2 w-full rounded-lg">
             送信
           </Button>
