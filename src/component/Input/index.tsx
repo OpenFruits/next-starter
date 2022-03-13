@@ -17,10 +17,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   return (
     <div className="block">
       <label htmlFor={rest.name}>
-        {rest.label ? <div className="block ml-4 text-sm font-bold text-gray-500">{rest.label}</div> : null}
+        {rest.label ? <div className="block ml-2 text-sm font-bold text-gray-500">{rest.label}</div> : null}
         <div className="relative">
           {rest.prefix ? (
-            <span className="flex absolute left-5 items-center h-full font-bold">{rest.prefix}</span>
+            <span className="flex absolute left-4 items-center h-full font-bold">{rest.prefix}</span>
           ) : null}
           <input
             type="text"
@@ -36,7 +36,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           />
         </div>
       </label>
-      {rest.error ? <p className="mt-0.5 ml-4 text-sm text-red-500">{rest.error}</p> : null}
+      {rest.error ? <p className="mt-0.5 ml-2 text-sm text-red-500">{rest.error}</p> : null}
     </div>
   );
 });
