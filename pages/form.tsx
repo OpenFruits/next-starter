@@ -62,7 +62,6 @@ const Form: CustomNextPage = () => {
             })}
             error={errors.userName?.message}
           />
-          <p>{`watch userName: @${watch("userName")}`}</p>
           <Input
             type="number"
             label="年齢"
@@ -78,6 +77,7 @@ const Form: CustomNextPage = () => {
             <option value="male">male</option>
             <option value="other">other</option>
           </Select>
+          <p>{`[watch] ${watch("accountName")} / @${watch("userName")} / ${watch("age")}歳 / ${watch("gender")}`}</p>
           <Button type="submit" variant="solid-blue" className="p-2 w-full rounded-lg">
             送信
           </Button>
