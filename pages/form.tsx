@@ -4,18 +4,21 @@ import type { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { Button } from "src/component/Button";
 import { Input } from "src/component/Input";
+import { Select } from "src/component/Input/select";
 import { FixedLayout } from "src/layout/FixedLayout";
 
 type Inputs = {
   accountName: string;
   userName: string;
   age: number;
+  gender: "male" | "female" | "other";
 };
 
 const defaultValue: Inputs = {
   accountName: "たくみ",
   userName: "openfruits",
   age: 25,
+  gender: "male",
 };
 
 const Form: CustomNextPage = () => {
@@ -70,6 +73,11 @@ const Form: CustomNextPage = () => {
             })}
             error={errors.age?.message}
           />
+          <Select type="text" label="性別" {...register("gender")}>
+            <option value="female">female</option>
+            <option value="male">male</option>
+            <option value="other">other</option>
+          </Select>
           <Button type="submit" variant="solid-blue" className="p-2 w-full rounded-lg">
             送信
           </Button>

@@ -7,6 +7,7 @@ import { Button } from "src/component/Button";
 import type { ButtonVariant } from "src/component/Button/type";
 import { Button2 as Btn2 } from "src/component/Button2";
 import { Input } from "src/component/Input";
+import { Select } from "src/component/Input/select";
 import { FixedLayout } from "src/layout/FixedLayout";
 
 const BtnClass = "p-2 rounded";
@@ -20,9 +21,14 @@ const Btn: VFC<{ variant: ButtonVariant }> = (props) => {
   );
 };
 
+type Input = {
+  example: string;
+  select: "foo" | "bar" | "baz";
+};
+
 const Component: CustomNextPage = () => {
-  const { register, handleSubmit } = useForm<{ example: string }>({});
-  const onSubmit: SubmitHandler<{ example: string }> = (data) => alert(data.example);
+  const { register, handleSubmit } = useForm<Input>({});
+  const onSubmit: SubmitHandler<Input> = (data) => alert(data.example);
 
   return (
     <>
@@ -58,6 +64,11 @@ const Component: CustomNextPage = () => {
         <h3>Input</h3>
         <form onSubmit={handleSubmit(onSubmit)} className="flex space-x-2">
           <Input defaultValue="example" {...register("example")} />
+          <Select defaultValue="foo" {...register("select")} className="w-24">
+            <option value="foo">foo</option>
+            <option value="bar">bar</option>
+            <option value="baz">baz</option>
+          </Select>
           <Btn2 tag="input" type="submit" value="submit" className={Btn2Class} />
         </form>
       </div>
